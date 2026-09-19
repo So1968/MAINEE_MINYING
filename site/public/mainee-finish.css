@@ -1,0 +1,66 @@
+/* Maïnée — finition fidèle à la maquette validée : chaleur, images, fioritures */
+:root{
+  --paper:#f3eadc;
+  --paper-light:#fbf6ee;
+  --paper-warm:#eadbc8;
+  --sage:#d5dccb;
+  --sage-deep:#bcc6b2;
+  --olive:#7d866d;
+  --olive-dark:#68715d;
+  --terra:#9a4c2c;
+  --terra-soft:#b96d48;
+  --ink:#583b2d;
+  --muted:#756257;
+  --stitch:#bf815d;
+}
+
+body{background:var(--paper);color:var(--ink)}
+.site-header{background:rgba(249,244,235,.97)!important;border-bottom-color:rgba(104,72,51,.12)!important}
+.brand-main{color:#713a25!important}.brand-sub{color:#817064!important}
+.nav button,.nav a{color:#5a473d!important}.nav button.active{color:var(--terra)!important}.nav button.active:after{background:var(--terra)!important}
+
+/* palette plus proche du premier dessin */
+.replica-hero{background:linear-gradient(90deg,#f5ecdf 0 39%,#d7ddcd 39%)!important}
+.replica-hero-copy{background:linear-gradient(90deg,rgba(247,239,228,.99) 0%,rgba(247,239,228,.95) 76%,rgba(247,239,228,.18) 100%)!important}
+.replica-hero-copy h1,.subpage-copy h2,.room-heading h3,.about-main-copy h2,.contact-panel h2{color:#7a3d24!important}
+.replica-cta,.mainee-form button{background:var(--terra)!important}
+.creation-preview{background:#f6eee3!important}.research-preview{background:linear-gradient(90deg,#e4dfd2,#d6ddcc)!important}.photo-preview{background:#f7f0e6!important}.about-preview{background:linear-gradient(90deg,#d9c8b3,#f3eadc)!important}.home-quote,footer{background:var(--olive-dark)!important}
+.mainee-subpage{background:var(--paper)!important}.subpage-copy{background:linear-gradient(145deg,#f6eddf,#eadbc8)!important}.sage-copy{background:linear-gradient(145deg,#dfe4d6,#ced7c6)!important}.paper-copy{background:linear-gradient(145deg,#f7efe4,#eee2d2)!important}
+.works-room,.research-table,.research-plates,.photo-room{background:#faf4ea!important}.editorial-flow{background:#d9dfcf!important}.teaching-statement{background:#efe4d5!important}.about-full{background:linear-gradient(90deg,#d5c3ae,#f3eadc)!important}.contact-full{background:linear-gradient(145deg,#f6ede0,#ddd9ca)!important}
+
+/* les photographies doivent dominer, jamais donner l'impression d'un emplacement vide */
+.subpage-image,.replica-hero-visual,.research-preview figure,.about-preview figure,.about-main-image,.contact-image{background:#d3d9c8!important}
+.subpage-image img,.replica-hero-visual img,.research-preview img,.about-preview img,.about-main-image img,.contact-image img{opacity:1!important;visibility:visible!important;filter:saturate(.94) contrast(.98) brightness(1.01)!important}
+.subpage-hero{min-height:650px!important}.subpage-image img{object-fit:cover!important}
+.creation-hero .subpage-image img{object-position:center 45%!important}.research-hero .subpage-image img{object-position:center 43%!important}.teaching-hero .subpage-image img{object-position:center 42%!important}.photo-hero .subpage-image img{object-position:center 47%!important}
+
+/* fioritures : petites feuilles + fil irrégulier, comme sur la maquette */
+.band-kicker,.sub-kicker{display:flex;align-items:center;gap:.72rem}
+.band-kicker:after,.sub-kicker:after{content:"";display:inline-block;width:33px;height:17px;opacity:.72;background-repeat:no-repeat;background-position:center;background-size:contain;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 34'%3E%3Cg fill='none' stroke='%23788769' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M4 28 C22 22 32 13 48 4'/%3E%3Cpath d='M20 20 C16 14 13 12 9 12 C11 17 14 20 20 20Z'/%3E%3Cpath d='M31 14 C29 8 26 6 22 5 C22 10 25 14 31 14Z'/%3E%3Cpath d='M39 9 C45 10 49 9 53 5 C47 4 43 5 39 9Z'/%3E%3C/g%3E%3C/svg%3E")}
+
+/* branches très discrètes dans les coins, sans fleurs hors Photographie */
+.creation-page .works-room:before,.research-page .research-table:before,.teaching-page .teaching-statement:before,.about-page .about-full:after{content:"";position:absolute;pointer-events:none;width:190px;height:250px;opacity:.17;background-repeat:no-repeat;background-size:contain;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 240'%3E%3Cg fill='none' stroke='%236f785f' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath d='M23 231 C42 176 73 126 121 36'/%3E%3Cpath d='M53 169 C31 153 20 138 17 122'/%3E%3Cpath d='M73 131 C96 123 111 111 125 94'/%3E%3Cpath d='M92 91 C72 80 63 67 59 53'/%3E%3Cpath d='M45 184 C34 173 30 163 29 153'/%3E%3Cpath d='M77 127 C86 113 86 102 84 91'/%3E%3Cpath d='M112 53 C125 50 137 43 145 34'/%3E%3C/g%3E%3C/svg%3E")}
+.creation-page .works-room:before,.research-page .research-table:before{right:1.7rem;top:1.2rem}.teaching-page .teaching-statement:before{left:1.2rem;bottom:-4rem;transform:scaleX(-1)}.about-page .about-full:after{right:1.8rem;bottom:1rem}
+.works-room,.research-table,.teaching-statement,.about-full{position:relative;overflow:hidden}
+
+/* le fil devient plus doux et plus présent */
+.stitch-svg path{stroke:var(--stitch)!important;stroke-width:1.45!important;stroke-dasharray:4 8 2 11!important;opacity:.68!important}
+.thread-line:after{background:repeating-linear-gradient(to bottom,rgba(190,126,87,.48) 0 5px,transparent 5px 12px)!important}
+
+/* œuvres et pages : ombres papier, pas cartes SaaS */
+.work-real img,.preview-works img{filter:drop-shadow(0 15px 18px rgba(73,44,28,.16))!important}
+.work-real figcaption,.research-plates figcaption{color:#705e52!important}
+.editorial-flow article{background:rgba(250,245,236,.22)!important}
+
+/* Enseignement : garder du visuel, éviter le retour à une grille froide */
+.teaching-page .subpage-hero{grid-template-columns:52% 48%!important;background:#d7ddcd!important}
+.teaching-page .teaching-statement{padding:2.4rem clamp(2rem,8vw,8rem);font:italic 1.2rem/1.6 Georgia,"Times New Roman",serif;color:#675347;text-align:center}
+.teaching-page .editorial-flow{display:grid;grid-template-columns:repeat(4,1fr)}
+.teaching-page .editorial-flow article{padding:2.7rem 2rem;border-right:1px solid rgba(86,64,51,.08)}
+.teaching-page .editorial-flow article:last-child{border-right:0}
+
+/* photographie : un peu plus généreuse comme dans le dessin */
+.photo-wall{gap:.9rem!important}.photo-wall figure{box-shadow:0 12px 24px rgba(73,53,39,.10)}
+
+@media(max-width:980px){.teaching-page .editorial-flow{grid-template-columns:1fr 1fr}.teaching-page .editorial-flow article:nth-child(2){border-right:0}}
+@media(max-width:760px){.subpage-hero{min-height:0!important}.teaching-page .editorial-flow{grid-template-columns:1fr}.creation-page .works-room:before,.research-page .research-table:before,.teaching-page .teaching-statement:before,.about-page .about-full:after{opacity:.10}}
