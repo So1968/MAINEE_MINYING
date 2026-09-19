@@ -1,0 +1,99 @@
+@import url('/image-quality.css');
+/* Direction artistique — couche éditoriale Mainée */
+:root{--da-paper:#f8f2e8;--da-ink:#4a382f;--da-olive:#7b876f;--da-terra:#9b4f2f;--da-gold:#b98658;--da-shadow:0 22px 60px rgba(63,47,39,.12)}
+body{background:
+  radial-gradient(circle at 12% 18%,rgba(123,135,111,.08),transparent 22%),
+  radial-gradient(circle at 88% 12%,rgba(185,134,88,.08),transparent 20%),
+  var(--da-paper)}
+.site-header{padding:14px 3.7vw;box-shadow:0 5px 24px rgba(63,47,39,.035)}
+.brand-main{font-size:2.15rem;letter-spacing:.01em}
+.brand-sub{letter-spacing:.18em}
+.nav{gap:.48rem 1.08rem}
+.nav button,.nav a{font-size:.8rem;transition:.22s ease}
+.nav button:hover,.nav button.active{transform:translateY(-1px)}
+.private-link{border-color:rgba(74,56,47,.28)!important;background:rgba(255,250,243,.48)!important}
+
+/* Accueil : moins démonstratif, plus habité */
+.home-view{grid-template-columns:.8fr 1.2fr;background:
+  linear-gradient(105deg,rgba(248,242,232,.98) 0 43%,rgba(233,238,227,.86) 43% 100%)}
+.home-copy{padding-left:clamp(3.2rem,8vw,8rem);position:relative;z-index:3}
+.home-copy:before{content:'';position:absolute;left:clamp(1.3rem,3vw,3rem);top:20%;height:48%;border-left:1px solid rgba(181,106,67,.26)}
+.home-copy h1{font-size:clamp(5.4rem,9.4vw,9.2rem);letter-spacing:-.035em;text-shadow:0 1px 0 rgba(255,255,255,.55)}
+.home-subtitle{max-width:540px;line-height:1.25}
+.tagline{font-size:1.22rem;max-width:470px}
+.cta{box-shadow:0 8px 24px rgba(155,79,47,.14);transition:.2s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(155,79,47,.18)}
+.garden-scene{background:#dce4d7;isolation:isolate}
+.garden-scene:before{background:
+  linear-gradient(90deg,rgba(248,242,232,.68),rgba(248,242,232,.10) 22%,transparent 42%),
+  radial-gradient(circle at 54% 42%,rgba(255,250,243,.80),transparent 29%)}
+.garden-scene:after{content:'';position:absolute;inset:0;z-index:-2;background:
+  linear-gradient(rgba(74,56,47,.04),rgba(74,56,47,.04)),
+  url('/images/hero-mer.jpeg') center/cover no-repeat;filter:saturate(.68) sepia(.08) contrast(.92);opacity:.72;transform:scale(1.025)}
+.moon-gate{width:min(62%,500px);border-width:25px;border-color:rgba(238,228,211,.88);box-shadow:0 0 0 1px rgba(74,56,47,.12),0 20px 60px rgba(63,47,39,.14),inset 0 0 0 1px rgba(255,255,255,.8);overflow:hidden;background:rgba(255,255,255,.06)}
+.moon-gate:before{content:'';position:absolute;inset:-8%;border-radius:50%;box-shadow:inset 0 0 55px rgba(54,68,55,.18)}
+.moon-gate span{position:absolute;right:8%;bottom:10%;width:52px;height:52px;background:rgba(247,241,231,.88);backdrop-filter:blur(4px);z-index:4}
+.stone{background:#72796e;filter:saturate(.65)}
+.bamboo{background:#65735f;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+.bamboo:before,.bamboo:after{background:#74816d}
+.paper-shadow{background:linear-gradient(90deg,rgba(248,242,232,.28),transparent 35%);box-shadow:inset 45px 0 85px rgba(247,241,231,.42)}
+
+/* Création : enlever l'effet grille de démonstration */
+.page-intro{min-height:62vh}
+.material-field{gap:10px;padding:7vw 8vw;perspective:900px}
+.material-field span{border-radius:1px;box-shadow:0 16px 34px rgba(82,49,31,.12),inset 0 0 0 1px rgba(255,255,255,.22);transform-origin:center}
+.material-field span:nth-child(1){transform:rotate(-1.7deg) translateY(8px)}
+.material-field span:nth-child(2){transform:rotate(.8deg) translateY(-5px)}
+.material-field span:nth-child(3){transform:rotate(1.6deg) translateY(5px)}
+.material-field span:nth-child(4){transform:rotate(.7deg) translateY(-2px)}
+.material-field span:nth-child(5){transform:rotate(-1.2deg) translateY(7px)}
+.material-field span:nth-child(6){transform:rotate(1.1deg) translateY(-4px)}
+.material-field span:before{opacity:.38}.material-field span:after{opacity:.46}
+.three-notes article,.research-grid article,.four-cards article{box-shadow:0 10px 30px rgba(63,47,39,.045)}
+
+/* Recherche / pédagogie : plus de respiration */
+.research-mark{position:relative}
+.research-mark:before{content:'明隐';position:absolute;right:12%;top:16%;font-size:1rem;color:rgba(123,64,40,.45);width:48px;height:48px;border:1px solid rgba(155,79,47,.22);border-radius:50%;display:grid;place-items:center}
+.research-mark span{background:rgba(255,250,243,.82);box-shadow:0 8px 22px rgba(63,47,39,.04)}
+.teaching-gate{position:relative;background:radial-gradient(circle at 50% 60%,rgba(255,250,243,.82),rgba(223,229,217,.3) 54%,transparent 55%);box-shadow:0 18px 40px rgba(63,47,39,.06),inset 0 0 0 1px rgba(255,255,255,.8)}
+.teaching-gate:after{content:'';position:absolute;left:18%;right:18%;bottom:16%;height:1px;background:rgba(123,135,111,.28);box-shadow:0 -18px 0 rgba(123,135,111,.10),0 18px 0 rgba(123,135,111,.10)}
+
+/* Photographie : image comme respiration, pas comme simple bloc */
+.photo-layout{grid-template-columns:.72fr 1.28fr;background:linear-gradient(120deg,#f4e9dc,#e9eee5)}
+.photo-main{margin:3.5vw 3.5vw 3.5vw 0;min-height:520px;box-shadow:var(--da-shadow);border:10px solid rgba(255,250,243,.72)}
+.photo-main img{object-position:center 48%;filter:saturate(.9) contrast(.96)}
+.photo-main figcaption{right:1.2rem;bottom:1.1rem}
+
+/* À propos : placeholder rendu comme une vraie place de portrait */
+.about-portrait-placeholder{background:
+  linear-gradient(180deg,rgba(223,229,217,.94),rgba(201,209,194,.92)),
+  url('/images/hero-mer.jpeg') center/cover no-repeat}
+.about-portrait-placeholder:before{content:'';position:absolute;width:min(62%,420px);height:72%;border:12px solid rgba(255,250,243,.86);box-shadow:var(--da-shadow);background:linear-gradient(180deg,rgba(255,250,243,.23),rgba(123,135,111,.12));transform:rotate(-1deg)}
+.about-portrait-placeholder>span{font-size:2.2rem;color:#73503d;z-index:3;letter-spacing:.03em}
+.moon-gate.small{opacity:.48}
+
+/* Contact : plus intime et moins formulaire administratif */
+.contact-layout{grid-template-columns:.82fr 1.18fr}
+.contact-copy{padding-left:clamp(3.2rem,7vw,7rem)}
+.contact-copy form{padding:1rem 0 0;gap:.8rem}
+.contact-copy input,.contact-copy textarea{background:rgba(255,250,243,.84);border-color:rgba(74,56,47,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.contact-copy input:focus,.contact-copy textarea:focus{border-color:rgba(155,79,47,.45)}
+.contact-garden{background:
+  linear-gradient(90deg,rgba(247,235,222,.24),transparent 35%),
+  linear-gradient(180deg,#dfe5d9,#c8d1c0)}
+.contact-garden:after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 64% 27%,rgba(255,250,243,.32),transparent 18%);pointer-events:none}
+
+footer{letter-spacing:.02em}
+
+@media(max-width:980px){
+ .home-view{background:linear-gradient(180deg,#f8eadc,#edf1e8)}
+ .home-copy{padding-left:clamp(2rem,7vw,5rem)}
+ .home-copy:before{display:none}
+ .photo-main{margin:0;box-shadow:none;border-width:0}
+}
+@media(max-width:640px){
+ .brand-main{font-size:1.9rem}
+ .home-copy h1{font-size:4.4rem}
+ .moon-gate{width:min(68%,360px);border-width:18px}
+ .photo-main{min-height:380px}
+}
