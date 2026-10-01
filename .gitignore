@@ -1,0 +1,6 @@
+site/node_modules/
+site/.env
+site/.env.*
+!site/.env.example
+site/private/*
+!site/private/prive.html

@@ -122,6 +122,8 @@ Documents de conception :
 
 ## Accès protégés
 
+La V1 du serveur, son lancement et ses tests d’accès sont décrits dans le [guide du site](./site/README.md). La page d’atelier est un modèle d’interface ; le coffre d’originaux, les sessions et les accès invités décrits ci-dessous restent des fonctions à construire.
+
 Le projet sépare dès sa première version :
 
 - le **site public**, accessible à tous et limité aux contenus validés ;

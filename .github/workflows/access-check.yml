@@ -1,0 +1,63 @@
+name: Vérifier les accès Mainée
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/access-check.yml"
+  pull_request:
+    paths:
+      - "site/**"
+      - ".github/workflows/access-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  access:
+    name: Accès HTTP / Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22]
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Vérifier la syntaxe
+        run: node --check server.js
+      - name: Tester les accès avec des fichiers fictifs
+        run: npm test
+
+  docker:
+    name: Accès dans l’image Docker
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Construire l’image
+        run: docker build -t mainee-access-check ./site
+      - name: Vérifier la page privée et les accès
+        run: |
+          docker run --rm --entrypoint node mainee-access-check -e "require('node:fs').accessSync('/app/private/prive.html'); if (require('node:fs').existsSync('/app/public/prive.html')) process.exit(1)"
+          docker run -d --name mainee-access-smoke -p 127.0.0.1:18081:3000 -e MAINEE_PRIVATE_PASSWORD=CI_fictitious_access_password mainee-access-check
+          trap 'docker rm -f mainee-access-smoke >/dev/null 2>&1 || true' EXIT
+          ready=0
+          for attempt in $(seq 1 40); do
+            if curl --fail --silent http://127.0.0.1:18081/ >/dev/null; then ready=1; break; fi
+            sleep 0.25
+          done
+          test "$ready" = 1
+          for path in /prive /prive.html /%70rive.html /p%72ive.html; do
+            code=$(curl --path-as-is --silent --output /dev/null --write-out '%{http_code}' "http://127.0.0.1:18081$path")
+            test "$code" = 401
+          done
+          code=$(curl --silent --user mainee:CI_fictitious_access_password --output /dev/null --write-out '%{http_code}' http://127.0.0.1:18081/prive)
+          test "$code" = 200
